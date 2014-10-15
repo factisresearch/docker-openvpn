@@ -130,7 +130,7 @@ fi
 cat > "$conf" <<EOF
 server $(getroute $OVPN_SERVER)
 verb 3
-#duplicate-cn
+duplicate-cn
 key $EASYRSA_PKI/private/${OVPN_CN}.key
 ca $EASYRSA_PKI/ca.crt
 cert $EASYRSA_PKI/issued/${OVPN_CN}.crt
@@ -145,9 +145,11 @@ proto $OVPN_PROTO
 # Rely on Docker to do port mapping, internally always 1194
 port 1194
 dev tun0
-status /tmp/openvpn-status.log
+status /var/lib/openvpn/status.log 5
+status-version 3
 
 client-config-dir $OPENVPN/ccd
+plugin /usr/lib/eurephia/eurephia-auth.so "-L 3 -l openvpn: -i /usr/lib/eurephia/edb-sqlite.so -- /var/lib/eurephia/eurephiadb"
 EOF
 
 [ -n "$OVPN_CLIENT_TO_CLIENT" ] && echo "client-to-client" >> "$conf"

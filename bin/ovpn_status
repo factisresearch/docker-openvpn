@@ -6,4 +6,8 @@
 
 set -ex
 
-tail -F /tmp/openvpn-status.log
+if [[ "$1" = "watch" ]]; then
+	exec watch -d -n 1 cat /var/lib/openvpn/status.log
+else
+	exec cat /var/lib/openvpn/status.log
+fi
