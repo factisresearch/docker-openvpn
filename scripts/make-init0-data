@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ./config
+exec docker run --name $OPENVPN_NAME_DATA -v /etc/openvpn -v /var/lib/eurephia -v /var/lib/openvpn busybox

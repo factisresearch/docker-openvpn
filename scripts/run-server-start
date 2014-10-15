@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ./config
+exec docker run --name $OPENVPN_NAME_SERVER --volumes-from $OPENVPN_NAME_DATA -d -p 1194:1194/udp --cap-add=NET_ADMIN $OPENVPN_IMAGE

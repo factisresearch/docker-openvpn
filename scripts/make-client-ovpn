@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+	echo "usage: $0 [client-name]"
+	exit 1
+fi
+
+source ./config
+exec docker run --volumes-from $OPENVPN_NAME_DATA --rm -it $OPENVPN_IMAGE ovpn_getclient $1

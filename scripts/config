@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export OPENVPN_IMAGE=openvpn-eurephia
+
+export OPENVPN_NAME_DATA=openvpn-data
+export OPENVPN_NAME_SERVER=openvpn-server

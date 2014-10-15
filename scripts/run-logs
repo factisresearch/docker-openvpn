@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ./config
+exec docker logs -f --tail=40 $OPENVPN_NAME_SERVER

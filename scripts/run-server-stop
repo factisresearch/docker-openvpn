@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source ./config
+
+docker kill $OPENVPN_NAME_SERVER
+docker rm $OPENVPN_NAME_SERVER

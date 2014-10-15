@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ./config
+exec docker run --volumes-from $OPENVPN_NAME_DATA -it --rm $OPENVPN_IMAGE ovpn_status "$@"
