@@ -4,7 +4,7 @@
 # Initialize the EasyRSA PKI
 #
 
-set -ex
+set -o errexit
 
 source "$OPENVPN/ovpn_env.sh"
 

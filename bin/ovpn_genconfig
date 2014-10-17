@@ -43,7 +43,7 @@ usage() {
     echo " -c    Enable client-to-client option"
 }
 
-set -ex
+set -o errexit
 
 OVPN_ENV=$OPENVPN/ovpn_env.sh
 OVPN_SERVER=192.168.255.0/24

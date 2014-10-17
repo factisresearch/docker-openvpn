@@ -4,7 +4,7 @@
 # Import/export EasyRSA default settings
 #
 
-set -ex
+set -o errexit
 
 if [ $# -lt 1 ]; then
     echo "No command provided"
